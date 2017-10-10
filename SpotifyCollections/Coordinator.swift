@@ -12,6 +12,7 @@ import UIKit
 class Coordinator {
     let communicator = AlbumCommunicator()
     var albums: [Album] = []
+    let rootViewController = CollectionViewController()
 
     init() {
         self.communicator.getToken {
@@ -25,4 +26,6 @@ class Coordinator {
             })
         }
     }
+
+
 }
