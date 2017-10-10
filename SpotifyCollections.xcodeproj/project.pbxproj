@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		672EFB1B1F8C370E00592C26 /* TokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672EFB1A1F8C370E00592C26 /* TokenInfo.swift */; };
+		67A4F86C1F8C6406009F7AB0 /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F86B1F8C6406009F7AB0 /* SpotifyAPI.swift */; };
+		67A4F86E1F8C6B1F009F7AB0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F86D1F8C6B1F009F7AB0 /* Coordinator.swift */; };
+		67A4F8701F8C6FA3009F7AB0 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F86F1F8C6FA3009F7AB0 /* Album.swift */; };
 		67ED84AF1F897ED000CB0088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED84AE1F897ED000CB0088 /* AppDelegate.swift */; };
 		67ED84B11F897ED000CB0088 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED84B01F897ED000CB0088 /* ViewController.swift */; };
 		67ED84B41F897ED000CB0088 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67ED84B21F897ED000CB0088 /* Main.storyboard */; };
 		67ED84B61F897ED000CB0088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67ED84B51F897ED000CB0088 /* Assets.xcassets */; };
 		67ED84B91F897ED000CB0088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67ED84B71F897ED000CB0088 /* LaunchScreen.storyboard */; };
+		67ED84C11F89801800CB0088 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED84C01F89801800CB0088 /* Secrets.swift */; };
+		67ED84C31F8982B000CB0088 /* AlbumCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED84C21F8982B000CB0088 /* AlbumCommunicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		672EFB1A1F8C370E00592C26 /* TokenInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenInfo.swift; sourceTree = "<group>"; };
+		67A4F86B1F8C6406009F7AB0 /* SpotifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
+		67A4F86D1F8C6B1F009F7AB0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		67A4F86F1F8C6FA3009F7AB0 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		67ED84AB1F897ED000CB0088 /* SpotifyCollections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyCollections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67ED84AE1F897ED000CB0088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67ED84B01F897ED000CB0088 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +32,8 @@
 		67ED84B51F897ED000CB0088 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67ED84B81F897ED000CB0088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67ED84BA1F897ED000CB0088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67ED84C01F89801800CB0088 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		67ED84C21F8982B000CB0088 /* AlbumCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCommunicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67A4F8711F8C7521009F7AB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67A4F86F1F8C6FA3009F7AB0 /* Album.swift */,
+				672EFB1A1F8C370E00592C26 /* TokenInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		67ED84A21F897ED000CB0088 = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +75,13 @@
 		67ED84AD1F897ED000CB0088 /* SpotifyCollections */ = {
 			isa = PBXGroup;
 			children = (
+				67A4F8711F8C7521009F7AB0 /* Model */,
 				67ED84AE1F897ED000CB0088 /* AppDelegate.swift */,
 				67ED84B01F897ED000CB0088 /* ViewController.swift */,
+				67ED84C21F8982B000CB0088 /* AlbumCommunicator.swift */,
+				67A4F86D1F8C6B1F009F7AB0 /* Coordinator.swift */,
+				67A4F86B1F8C6406009F7AB0 /* SpotifyAPI.swift */,
+				67ED84C01F89801800CB0088 /* Secrets.swift */,
 				67ED84B21F897ED000CB0088 /* Main.storyboard */,
 				67ED84B51F897ED000CB0088 /* Assets.xcassets */,
 				67ED84B71F897ED000CB0088 /* LaunchScreen.storyboard */,
@@ -91,12 +117,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = franktan;
 				TargetAttributes = {
 					67ED84AA1F897ED000CB0088 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = XPHUJ78MCR;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -137,8 +164,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67ED84C31F8982B000CB0088 /* AlbumCommunicator.swift in Sources */,
 				67ED84B11F897ED000CB0088 /* ViewController.swift in Sources */,
+				67ED84C11F89801800CB0088 /* Secrets.swift in Sources */,
+				67A4F86C1F8C6406009F7AB0 /* SpotifyAPI.swift in Sources */,
+				672EFB1B1F8C370E00592C26 /* TokenInfo.swift in Sources */,
 				67ED84AF1F897ED000CB0088 /* AppDelegate.swift in Sources */,
+				67A4F86E1F8C6B1F009F7AB0 /* Coordinator.swift in Sources */,
+				67A4F8701F8C6FA3009F7AB0 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +207,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -182,7 +217,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -224,7 +263,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -232,7 +273,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -266,7 +311,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.frankctan.SpotifyCollections;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -279,7 +325,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.frankctan.SpotifyCollections;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -302,6 +349,7 @@
 				67ED84BF1F897ED000CB0088 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
