@@ -40,6 +40,11 @@ struct Album {
     /// Album art.
     var image: UIImage?
 
+    /// String of artists
+    var formattedArtist: String {
+        return self.artists.joined(separator: ", ")
+    }
+
     init(albumType: String,
          artists: [String],
          sID: String,
