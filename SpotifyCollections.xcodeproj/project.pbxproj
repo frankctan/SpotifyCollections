@@ -13,7 +13,6 @@
 		67A4F8701F8C6FA3009F7AB0 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F86F1F8C6FA3009F7AB0 /* Album.swift */; };
 		67ED84AF1F897ED000CB0088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED84AE1F897ED000CB0088 /* AppDelegate.swift */; };
 		67ED84B11F897ED000CB0088 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED84B01F897ED000CB0088 /* ViewController.swift */; };
-		67ED84B41F897ED000CB0088 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67ED84B21F897ED000CB0088 /* Main.storyboard */; };
 		67ED84B61F897ED000CB0088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67ED84B51F897ED000CB0088 /* Assets.xcassets */; };
 		67ED84B91F897ED000CB0088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67ED84B71F897ED000CB0088 /* LaunchScreen.storyboard */; };
 		67ED84C11F89801800CB0088 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED84C01F89801800CB0088 /* Secrets.swift */; };
@@ -28,7 +27,6 @@
 		67ED84AB1F897ED000CB0088 /* SpotifyCollections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyCollections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67ED84AE1F897ED000CB0088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67ED84B01F897ED000CB0088 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		67ED84B31F897ED000CB0088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		67ED84B51F897ED000CB0088 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67ED84B81F897ED000CB0088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67ED84BA1F897ED000CB0088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 				67A4F86D1F8C6B1F009F7AB0 /* Coordinator.swift */,
 				67A4F86B1F8C6406009F7AB0 /* SpotifyAPI.swift */,
 				67ED84C01F89801800CB0088 /* Secrets.swift */,
-				67ED84B21F897ED000CB0088 /* Main.storyboard */,
 				67ED84B51F897ED000CB0088 /* Assets.xcassets */,
 				67ED84B71F897ED000CB0088 /* LaunchScreen.storyboard */,
 				67ED84BA1F897ED000CB0088 /* Info.plist */,
@@ -153,7 +150,6 @@
 			files = (
 				67ED84B91F897ED000CB0088 /* LaunchScreen.storyboard in Resources */,
 				67ED84B61F897ED000CB0088 /* Assets.xcassets in Resources */,
-				67ED84B41F897ED000CB0088 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,14 +174,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		67ED84B21F897ED000CB0088 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				67ED84B31F897ED000CB0088 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		67ED84B71F897ED000CB0088 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
