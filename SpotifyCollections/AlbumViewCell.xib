@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AlbumViewCell" customModule="SpotifyCollections" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="285" height="222"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qQJ-g2-Shd">
+                    <rect key="frame" x="0.0" y="0.0" width="285" height="222"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yee-qd-m4G">
+                    <rect key="frame" x="6" y="169" width="98.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lx1-aK-lpN">
+                    <rect key="frame" x="6" y="195" width="98.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rBl-uh-Z1T">
+                    <rect key="frame" x="-0.5" y="0.5" width="285" height="222"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="lx1-aK-lpN" secondAttribute="bottom" constant="6" id="3Ub-bm-cQy"/>
+                <constraint firstItem="qQJ-g2-Shd" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="3sd-o1-qEa"/>
+                <constraint firstItem="lx1-aK-lpN" firstAttribute="width" secondItem="yee-qd-m4G" secondAttribute="width" id="4Vo-xj-crj"/>
+                <constraint firstItem="rBl-uh-Z1T" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="4ZD-i8-5hM"/>
+                <constraint firstItem="qQJ-g2-Shd" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="5wA-lP-2SF"/>
+                <constraint firstItem="yee-qd-m4G" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="H25-lm-cbC"/>
+                <constraint firstItem="qQJ-g2-Shd" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="OXQ-7Y-R8c"/>
+                <constraint firstItem="yee-qd-m4G" firstAttribute="leading" secondItem="lx1-aK-lpN" secondAttribute="leading" id="QOK-IH-lvR"/>
+                <constraint firstItem="rBl-uh-Z1T" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="SzU-mw-uqt"/>
+                <constraint firstItem="lx1-aK-lpN" firstAttribute="top" secondItem="yee-qd-m4G" secondAttribute="bottom" constant="5" id="ZqO-fn-b3N"/>
+                <constraint firstItem="rBl-uh-Z1T" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="bxx-c5-3m3"/>
+                <constraint firstItem="lx1-aK-lpN" firstAttribute="height" secondItem="yee-qd-m4G" secondAttribute="height" id="f3K-Ex-eBl"/>
+                <constraint firstItem="rBl-uh-Z1T" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="gTo-oI-g45"/>
+                <constraint firstItem="qQJ-g2-Shd" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="gyn-qs-ktX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="activityIndicator" destination="rBl-uh-Z1T" id="VgP-tm-6HE"/>
+                <outlet property="albumLabel" destination="lx1-aK-lpN" id="xR8-cW-30A"/>
+                <outlet property="artistLabel" destination="yee-qd-m4G" id="bRZ-xe-FCy"/>
+                <outlet property="imageView" destination="qQJ-g2-Shd" id="1q0-AM-Pu0"/>
+            </connections>
+            <point key="canvasLocation" x="-10.5" y="-169"/>
+        </view>
+    </objects>
+</document>

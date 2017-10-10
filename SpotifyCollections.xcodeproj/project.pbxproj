@@ -11,6 +11,10 @@
 		67A4F86C1F8C6406009F7AB0 /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F86B1F8C6406009F7AB0 /* SpotifyAPI.swift */; };
 		67A4F86E1F8C6B1F009F7AB0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F86D1F8C6B1F009F7AB0 /* Coordinator.swift */; };
 		67A4F8701F8C6FA3009F7AB0 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F86F1F8C6FA3009F7AB0 /* Album.swift */; };
+		67A4F8731F8D1C92009F7AB0 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F8721F8D1C92009F7AB0 /* CollectionViewController.swift */; };
+		67A4F8751F8D1D09009F7AB0 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F8741F8D1D09009F7AB0 /* AlbumViewCell.swift */; };
+		67A4F8771F8D1D75009F7AB0 /* AlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A4F8761F8D1D75009F7AB0 /* AlbumViewCell.xib */; };
+		67A4F8791F8D1F79009F7AB0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F8781F8D1F79009F7AB0 /* Extensions.swift */; };
 		67ED84AF1F897ED000CB0088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED84AE1F897ED000CB0088 /* AppDelegate.swift */; };
 		67ED84B11F897ED000CB0088 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED84B01F897ED000CB0088 /* ViewController.swift */; };
 		67ED84B61F897ED000CB0088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67ED84B51F897ED000CB0088 /* Assets.xcassets */; };
@@ -77,6 +81,8 @@
 				67ED84AE1F897ED000CB0088 /* AppDelegate.swift */,
 				67ED84B01F897ED000CB0088 /* ViewController.swift */,
 				67ED84C21F8982B000CB0088 /* AlbumCommunicator.swift */,
+				67A4F8741F8D1D09009F7AB0 /* AlbumViewCell.swift */,
+				67A4F8761F8D1D75009F7AB0 /* AlbumViewCell.xib */,
 				67A4F86D1F8C6B1F009F7AB0 /* Coordinator.swift */,
 				67A4F86B1F8C6406009F7AB0 /* SpotifyAPI.swift */,
 				67ED84C01F89801800CB0088 /* Secrets.swift */,
@@ -150,6 +156,7 @@
 			files = (
 				67ED84B91F897ED000CB0088 /* LaunchScreen.storyboard in Resources */,
 				67ED84B61F897ED000CB0088 /* Assets.xcassets in Resources */,
+				67A4F8771F8D1D75009F7AB0 /* AlbumViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +174,7 @@
 				672EFB1B1F8C370E00592C26 /* TokenInfo.swift in Sources */,
 				67ED84AF1F897ED000CB0088 /* AppDelegate.swift in Sources */,
 				67A4F86E1F8C6B1F009F7AB0 /* Coordinator.swift in Sources */,
+				67A4F8751F8D1D09009F7AB0 /* AlbumViewCell.swift in Sources */,
 				67A4F8701F8C6FA3009F7AB0 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
