@@ -31,7 +31,7 @@ class Coordinator {
     func getNewReleasesAndLoadImages(with priority: ImageLoader.Priority) {
         self.communicator.getNewReleases { (albums, oldOffset) in
             print("successfully retrieved new releases")
-            for i in oldOffset..<albums.count {
+            for i in oldOffset..<(oldOffset + albums.count) {
                 let album = albums[i - oldOffset]
                 self.rootViewController.dataSource[i] = album
 //                self.communicator.getImage(from: albums[i].imageURL, { (data) in
@@ -47,15 +47,16 @@ class Coordinator {
 
 extension Coordinator: CollectionViewControllerDelegate {
     func collectionViewControllerDidUpdateVisibleAlbums(_ viewController: CollectionViewController) {
+        DispatchQueue.main.async {
+            let visibleAlbums =
+                viewController
+                    .collectionView?
+                    .indexPathsForVisibleItems
+                    .flatMap { viewController.dataSource[$0.item] }
 
-        let visibleAlbums =
-            viewController
-                .collectionView?
-                .indexPathsForVisibleItems
-                .flatMap { viewController.dataSource[$0.item] }
-
-        for album in visibleAlbums ?? [Album]() {
-            self.imageLoader.getImage(for: album, with: .high)
+            for album in visibleAlbums ?? [Album]() {
+                self.imageLoader.getImage(for: album, with: .high)
+            }
         }
     }
 

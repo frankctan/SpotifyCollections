@@ -18,7 +18,11 @@ class CollectionViewController: UICollectionViewController {
     weak var delegate: CollectionViewControllerDelegate?
 
     /// CollectionView DataSource.
-    var dataSource: [Album?] = Array(repeating: nil, count: 40)
+    var dataSource: [Album?] = Array(repeating: nil, count: 40) {
+        didSet {
+            self.delegate?.collectionViewControllerDidUpdateVisibleAlbums(self)
+        }
+    }
 
     private let albumViewCellReuseID = "albumViewCell"
 
@@ -140,12 +144,17 @@ extension CollectionViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.delegate?.collectionViewControllerDidUpdateVisibleAlbums(self)        
 
-        /*
+
         // Total height of scroll view.
         let totalHeight = scrollView.contentSize.height
 
         // Return if collectionView isn't populated.
         guard totalHeight != 0 else {
+            return
+        }
+
+        // Limit the maximum number of albums loaded.
+        guard self.dataSource.count < 400 else {
             return
         }
 
@@ -175,7 +184,6 @@ extension CollectionViewController {
              */
             self.delegate?.collectionViewControllerNeedsMoreAlbums(self)
         }
-        */
     }
 
 }
