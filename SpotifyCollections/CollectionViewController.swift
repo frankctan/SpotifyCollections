@@ -8,10 +8,17 @@
 
 import UIKit
 
+protocol CollectionViewControllerDelegate: class {
+    func collectionViewControllerNeedsMoreAlbums(_ viewController: CollectionViewController)
+    func collectionViewControllerDidUpdateVisibleAlbums(_ viewController: CollectionViewController)
+}
+
 class CollectionViewController: UICollectionViewController {
 
+    weak var delegate: CollectionViewControllerDelegate?
+
     /// CollectionView DataSource.
-    var dataSource: [Album?] = Array(repeating: nil, count: 20)
+    var dataSource: [Album?] = Array(repeating: nil, count: 40)
 
     private let albumViewCellReuseID = "albumViewCell"
 
@@ -19,7 +26,6 @@ class CollectionViewController: UICollectionViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let itemsPerRow: CGFloat = 2
-        let itemsPerColumn: CGFloat = 3
         let minSpacing: CGFloat = 5
         let horizontalPadding: CGFloat = 10
 
@@ -49,6 +55,11 @@ class CollectionViewController: UICollectionViewController {
                                       forCellWithReuseIdentifier: self.albumViewCellReuseID)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.delegate?.collectionViewControllerDidUpdateVisibleAlbums(self)
+    }
+
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -69,6 +80,26 @@ class CollectionViewController: UICollectionViewController {
 
         cell.album = self.dataSource[indexPath.row]
         return cell
+    }
+
+    /**
+     Refresh the collectionView cell that corresponds to the recently loaded image.
+     */
+    func refresh(album: Album) {
+        guard let paths = self.collectionView?.indexPathsForVisibleItems else {
+                return
+        }
+
+        let indexes = paths.map { $0.item }
+
+        for index in indexes {
+            if let temp = self.dataSource[index], album === temp  {
+                let cell = self.collectionView?
+                    .cellForItem(at: IndexPath(item: index, section: 0)) as? AlbumViewCell
+                cell?.album = album
+            }
+        }
+
     }
 
     // MARK: UICollectionViewDelegate
@@ -107,6 +138,9 @@ class CollectionViewController: UICollectionViewController {
 // MARK: - UIScrollViewDelegate
 extension CollectionViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.delegate?.collectionViewControllerDidUpdateVisibleAlbums(self)        
+
+        /*
         // Total height of scroll view.
         let totalHeight = scrollView.contentSize.height
 
@@ -121,10 +155,10 @@ extension CollectionViewController {
         // Percentage of `totalHeight`
         let scrollThreshold: CGFloat = 0.8
 
-        // If scrollPosition exceeds `scrollThreshold`, double the size of the dataSource.
+        // If scrollPosition exceeds `scrollThreshold`, add 40 more items to the datasource.
         // TODO: - check Spotify API limit. For new releases, limit is 500.
         if scrollPosition > (scrollThreshold * totalHeight) {
-            let placeholders: [Album?] = Array.init(repeating: nil, count: self.dataSource.count)
+            let placeholders: [Album?] = Array.init(repeating: nil, count: 40)
 
             var indexPaths: [IndexPath] = []
             for i in self.dataSource.count..<self.dataSource.count + placeholders.count {
@@ -132,7 +166,16 @@ extension CollectionViewController {
             }
 
             self.dataSource.append(contentsOf: placeholders)
+            print("appending items to dataSource")
             self.collectionView?.insertItems(at: indexPaths)
+
+            /*
+             Call the delegate to kick off a network request for more albums.
+             Called after datasource is updated to avoid any potential race conditions.
+             */
+            self.delegate?.collectionViewControllerNeedsMoreAlbums(self)
         }
+        */
     }
+
 }
