@@ -18,7 +18,7 @@ enum AlbumType: String {
     case album, single, compilation
 }
 
-struct Album {
+class Album {
     /// One of three values: album, single, or compilation.
     let albumType: AlbumType
 
@@ -85,7 +85,7 @@ extension Album {
         return result
     }
 
-    init?(data: [String: Any]) {
+    convenience init?(data: [String: Any]) {
         guard let albumType = data["album_type"] as? String,
             let artists = data["artists"] as? [[String: Any]],
             let artistNames = (artists.map { $0["name"] }) as? [String],
