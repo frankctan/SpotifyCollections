@@ -97,28 +97,3 @@ class AlbumCommunicator {
         task.resume()
     }
 }
-
-//    class func getShit() {
-//        guard let url = AlbumCommunicator.createURLPath() else {
-//            print("error creating URL")
-//            return
-//        }
-////        var request = URLRequest(url: url)
-////        request.setValue(Secrets.oAuth, forHTTPHeaderField: "Authorization")
-//    }
-
-
-
-//    private class func createURLPath() -> URL? {
-//        var components = URLComponents()
-//        components.scheme = "https"
-//        components.host = "api.spotify.com"
-//        components.path = "/v1/browse/new-releases"
-//        let limitQuery = URLQueryItem(name: "limit", value: "20")
-//        let offsetQuery = URLQueryItem(name: "offset", value: "0")
-//        components.queryItems = [limitQuery, offsetQuery]
-//        return components.url
-//    }
-
-
-
