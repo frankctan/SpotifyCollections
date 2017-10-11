@@ -47,28 +47,33 @@ class AlbumCommunicator {
         task.resume()
     }
 
-    func getNewReleases(_ completion: @escaping ([Album]) -> Void) {
+    /**
+     - parameter completion: Called when network request is completed with albums retrieved and API
+     offset.
+     */
+    func getNewReleases(_ completion: @escaping ([Album], Int) -> Void) {
         guard let auth = self.token?.authHeader else {
             return
         }
+        let request = SpotifyAPI.newReleases(auth, self.pointer.limit, self.pointer.offset).request
 
         let task =
             URLSession
                 .shared
-                .dataTask(with: SpotifyAPI.newReleases(auth, limit, offset).request) { (dataOrNil, _, errorOrNil) in
+                .dataTask(with: request) { (dataOrNil, _, errorOrNil) in
                     if let error = errorOrNil {
                         print(error)
                         return
                     }
-
-                    self.pointer.offset += self.pointer.limit
 
                     guard let data = dataOrNil,
                         let albums = Album.initMultipleAlbums(data: data) else {
                         return
                     }
 
-                    completion(albums)
+                    completion(albums, self.pointer.offset)
+
+                    self.pointer.offset += self.pointer.limit
         }
 
         task.resume()
@@ -76,7 +81,10 @@ class AlbumCommunicator {
 
     func getImage(for album: Album, _ completion: @escaping (UIImage) -> Void) {
         self.getImage(from: album.imageURL) { (data) in
-            let image = UIImage(data: data)
+            guard let image = UIImage(data: data) else {
+                print("unable to convert data into UIImagae")
+                return
+            }
             completion(image)
         }
     }

@@ -13,8 +13,12 @@ import UIKit
 class Coordinator {
     let communicator = AlbumCommunicator()
     let rootViewController = CollectionViewController()
+    let imageLoader: ImageLoader
 
     init() {
+        self.imageLoader = ImageLoader(communicator: self.communicator)
+        self.rootViewController.delegate = self
+        self.imageLoader.delegate = self
         self.communicator.getToken {
             print("successfully retrieved and assigned token")
             self.communicator.getNewReleases { (albums) in
@@ -30,4 +34,10 @@ class Coordinator {
 
 
 
+// MARK: - ImageLoaderDelegate
+
+extension Coordinator: ImageLoaderDelegate {
+    func imageLoaderDidLoadImage(_ imageLoader: ImageLoader, for album: Album) {
+        self.rootViewController.refresh(album: album)
+    }
 }
