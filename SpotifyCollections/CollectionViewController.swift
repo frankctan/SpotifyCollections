@@ -10,23 +10,21 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
 
-    /// Datasource
-//    var albums: [Album?] = []
-    var dataSource: [Int] = Array.init(repeating: 0, count: 20)
+    /// CollectionView DataSource.
+    var dataSource: [Album?] = Array(repeating: nil, count: 20)
 
     private let albumViewCellReuseID = "albumViewCell"
 
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-
         let itemsPerRow: CGFloat = 2
         let itemsPerColumn: CGFloat = 3
         let minSpacing: CGFloat = 5
         let horizontalPadding: CGFloat = 10
-        let itemSize =
-            CGSize(width: UIScreen.main.bounds.width / itemsPerRow - minSpacing - horizontalPadding,
-                   height: UIScreen.main.bounds.height / itemsPerColumn - minSpacing)
+
+        let dim = UIScreen.main.bounds.width / itemsPerRow - minSpacing - horizontalPadding
+        let itemSize = CGSize(width: dim, height: dim)
 
         layout.sectionInset = UIEdgeInsets(top: 0.0,
                                            left: horizontalPadding / 2,
@@ -69,11 +67,7 @@ class CollectionViewController: UICollectionViewController {
                 .dequeueReusableCell(withReuseIdentifier: self.albumViewCellReuseID,
                                      for: indexPath) as! AlbumViewCell
 
-//        cell.album = self.albums[indexPath.row]
-        cell.imageView.backgroundColor = .blue
-        cell.artistLabel.text = "artist" + " " + String(indexPath.row)
-        cell.albumLabel.text = "album" + " " + String(indexPath.row)
-
+        cell.album = self.dataSource[indexPath.row]
         return cell
     }
 
@@ -130,11 +124,10 @@ extension CollectionViewController {
         // If scrollPosition exceeds `scrollThreshold`, double the size of the dataSource.
         // TODO: - check Spotify API limit. For new releases, limit is 500.
         if scrollPosition > (scrollThreshold * totalHeight) {
-
-            let placeholders = Array.init(repeating: 0, count: self.dataSource.count)
+            let placeholders: [Album?] = Array.init(repeating: nil, count: self.dataSource.count)
 
             var indexPaths: [IndexPath] = []
-            for i in self.dataSource.count..<self.dataSource.count+placeholders.count {
+            for i in self.dataSource.count..<self.dataSource.count + placeholders.count {
                 indexPaths.append(IndexPath(item: i, section: 0))
             }
 
