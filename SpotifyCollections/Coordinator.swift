@@ -21,18 +21,48 @@ class Coordinator {
         self.imageLoader.delegate = self
         self.communicator.getToken {
             print("successfully retrieved and assigned token")
-            self.communicator.getNewReleases { (albums) in
-                for i in 0..<albums.count {
-                    self.rootViewController.dataSource[i] = albums[i]
-                    self.communicator.getImage(from: albums[i].imageURL, { (data) in
-                        albums[i].image = UIImage(data: data)
-                    })
-                }
-            }
+            self.getNewReleasesAndLoadImages(with: .low)
         }
     }
 
+    /**
+     - parameter priority - Priority of image loading.
+     */
+    func getNewReleasesAndLoadImages(with priority: ImageLoader.Priority) {
+        self.communicator.getNewReleases { (albums, oldOffset) in
+            print("successfully retrieved new releases")
+            for i in oldOffset..<albums.count {
+                let album = albums[i - oldOffset]
+                self.rootViewController.dataSource[i] = album
+//                self.communicator.getImage(from: albums[i].imageURL, { (data) in
+//                    albums[i].image = UIImage(data: data)
+//                })
+                self.imageLoader.getImage(for: album, with: priority)
+            }
+        }
+    }
+}
 
+//MARK: - CollectionViewControllerDelegate
+
+extension Coordinator: CollectionViewControllerDelegate {
+    func collectionViewControllerDidUpdateVisibleAlbums(_ viewController: CollectionViewController) {
+
+        let visibleAlbums =
+            viewController
+                .collectionView?
+                .indexPathsForVisibleItems
+                .flatMap { viewController.dataSource[$0.item] }
+
+        for album in visibleAlbums ?? [Album]() {
+            self.imageLoader.getImage(for: album, with: .high)
+        }
+    }
+
+    func collectionViewControllerNeedsMoreAlbums(_ viewController: CollectionViewController) {
+        self.getNewReleasesAndLoadImages(with: .low)
+    }
+}
 
 // MARK: - ImageLoaderDelegate
 
