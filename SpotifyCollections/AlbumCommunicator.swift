@@ -7,10 +7,17 @@
 //
 
 import Foundation
+import UIKit
+
+struct SpotifyPointer {
+    var limit: Int = 40
+    var offset: Int = 0
+}
 
 class AlbumCommunicator {
     private let queue: OperationQueue
     private var token: TokenInfo?
+    private var pointer = SpotifyPointer()
 
     init() {
         let queue = OperationQueue()
@@ -40,7 +47,7 @@ class AlbumCommunicator {
         task.resume()
     }
 
-    func getNewReleases(limit: Int, offset: Int, _ completion: @escaping ([Album]) -> Void) {
+    func getNewReleases(_ completion: @escaping ([Album]) -> Void) {
         guard let auth = self.token?.authHeader else {
             return
         }
@@ -51,7 +58,10 @@ class AlbumCommunicator {
                 .dataTask(with: SpotifyAPI.newReleases(auth, limit, offset).request) { (dataOrNil, _, errorOrNil) in
                     if let error = errorOrNil {
                         print(error)
+                        return
                     }
+
+                    self.pointer.offset += self.pointer.limit
 
                     guard let data = dataOrNil,
                         let albums = Album.initMultipleAlbums(data: data) else {
@@ -62,6 +72,13 @@ class AlbumCommunicator {
         }
 
         task.resume()
+    }
+
+    func getImage(for album: Album, _ completion: @escaping (UIImage) -> Void) {
+        self.getImage(from: album.imageURL) { (data) in
+            let image = UIImage(data: data)
+            completion(image)
+        }
     }
 
     func getImage(from url: URL, _ completion: @escaping (Data) -> Void) {
