@@ -62,7 +62,7 @@ class AlbumViewCell: UICollectionViewCell {
     }
 
     func toggleViewsIfNeeded() {
-        let flag = (album == nil)
+        let flag = (album?.image == nil)
         self.imageView.isHidden = flag
         self.artistLabel.isHidden = flag
         self.albumLabel.isHidden = flag
