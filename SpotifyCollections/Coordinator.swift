@@ -9,23 +9,25 @@
 import Foundation
 import UIKit
 
+
 class Coordinator {
     let communicator = AlbumCommunicator()
-    var albums: [Album] = []
     let rootViewController = CollectionViewController()
 
     init() {
         self.communicator.getToken {
             print("successfully retrieved and assigned token")
-            self.communicator.getNewReleases(limit: 10, offset: 0, { (albums) in
-                self.albums = albums
-                self.communicator.getImage(from: albums[0].imageURL, { (data) in
-                    let image = UIImage(data: data)
-                    print("retrieved image")
-                })
-            })
+            self.communicator.getNewReleases { (albums) in
+                for i in 0..<albums.count {
+                    self.rootViewController.dataSource[i] = albums[i]
+                    self.communicator.getImage(from: albums[i].imageURL, { (data) in
+                        albums[i].image = UIImage(data: data)
+                    })
+                }
+            }
         }
     }
+
 
 
 }
